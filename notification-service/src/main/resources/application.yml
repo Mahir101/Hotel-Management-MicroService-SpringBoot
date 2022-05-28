@@ -1,0 +1,18 @@
+mail:
+   address:
+      from: mdmahirlabib@gmail.com
+kafka:
+   enabled: true
+   topics:
+      project-status-changed: reservationtopic
+server:
+   port: 9000
+spring:
+   kafka:
+      consumer:
+         bootstrap-servers:
+         - localhost:9092
+         group-id: group_id
+         auto-offset-reset: earliest
+         key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+         value-deserializer: org.apache.kafka.common.serialization.StringDeserializer

@@ -1,0 +1,79 @@
+Gutes service:
+DB Name: guest
+Tables: USER, PROFILE, CREDITCARD, STAYHISTORY
+
+USER: ID, STATUS, ACTIVE, PROFILE(One to One), CREDITCARD(One to Many), STAYHISTORY (One to Many)
+PROFILE: ID, FIRST_NAME, LAST_NAME, E-MAIL, MOBILR_NO, STREET, CITY, STATE, PINCIDE, COUNTRY
+CREDITCARD: ID, CARD_NO, EXPIRE_DATE, NAME, CARD_TYPE
+STAYHISTORY: ID, RESERVATION ID
+
+End Points: 
+POST - api/v1/users/
+GET - api/v1/users/
+GET - api/v1/users/{userid}
+PUT - api/v1/users/{userid}
+DELETE - api/v1/users/{userid}
+
+
+
+Hotel Service:
+DB NAME:hotel
+Tables: HOTEL, ROOM, ROOM_TYPE, HOTEL_ADDRESS
+
+HOTEL:ID, HOTEL_NAME, ADDRESS(One to One), IS_ACTIVE, ROOM(One ro Many)
+ROOM: ID, ROOM_NO, ROOM_STATUS, ROOM_TYPE(One to One), HOTEL(Many to One), ISACTIVE
+ROOM_TYPE:ID, ROOM_NAME, RENT_PER_DAY, CAPACITY, ISACTIVE
+HOTEL_ADDRESS: ID, STREET, CITY, STATE, PINCIDE, COUNTRY
+
+
+End Points:
+HOTEL:
+POST - api/v1/hotels/
+GET - api/v1/hotels/
+GET - api/v1/hotels/{hotelid}
+PUT - api/v1/hotels/{hotelid}
+DELETE - api/v1/hotels/{hotelid}
+
+ROOM:
+POST - api/v1/rooms/{hotelid}
+GET - api/v1/rooms/
+GET - api/v1/rooms/{roomid}
+GET- api/v1/rooms/{hotelid}
+PUT - api/v1/hotels/{roomid}
+DELETE - api/v1/rooms/{roomid}
+
+ROOM_TYPE:
+POST - api/v1/roomtypes/
+GET - api/v1/roomtypes/
+GET - api/v1/roomtypes/{roomtypeid}
+PUT - api/v1/roomtypes/{roomtypeid}
+DELETE - api/v1/roomtypes/{roomtypeid}
+
+
+
+
+Payment Service:
+DB NAME: Payment
+Tables: PAYMENT_DETAILS
+
+PAYMENT_DETAILS: ID, MODE_OF_PAYMETN, RESERVATION_ID(One to One), STATUS
+
+End Points:
+POST - api/v1/payments/
+GET - api/v1/payments/{reservationid}
+
+
+
+Reservation Service:
+DB NAME: Reservation
+Tables: RESERVATION_DETAILS
+
+RESERVATION_DETAILS: ID, GUEST_ID(One to One), HOTEL_ID(One to One), PARTY_MIX, ROOM_ID(One to Many), CHECK_IN, CHECK_OUT, 
+			TOTAL_COAST, ISACTIVE, PAYMENT_ID, BOOKING_STATUS
+
+
+End Points:
+POST - api/v1/reservations/
+GET - api/v1/reservations/{reservatrionid}
+DELETE - api/v1/reservations/{reservatrionid}
+
