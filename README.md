@@ -1,5 +1,6 @@
 # Developing micro-services using Spring boot
 # Project: Hotel Management
-It may come handly for 5 star or 4 star hotels in Bangladesh.
 
-#Kafka is used for notification stream
+#Kafka is used for notification stream (Producer-Consumer Model)
+
+#OpenFeign for use of interface directly using some functions without implementing it because spring boot will handle it automatically
